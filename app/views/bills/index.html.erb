@@ -1,0 +1,41 @@
+<h1>Bill Tracker</h1>	
+	<% if notice %>
+	<p id="notice"><%= notice %></p>
+	<% end %>
+<table>
+<% @bills.each do |bill| %>
+	<% if bill.paid == "No" then %>
+		<tr class="list_line_paid">
+	<% else %>
+  		<tr class="list_line_notpaid">
+	<% end %>
+    <td class="link_description">
+		<dl>
+			<dt><%= bill.bills %></dt><br>
+    <dd><strong>Amount:</strong> <%= number_to_currency(bill.amount) %>
+    <br><gg><strong>Due by:</strong> <%= bill.due.strftime('%m-%d-%Y') %></gg>
+    <br><strong>Paid?</strong> <%= bill.paid %></dd>
+	<br>
+	<br>
+	<% if bill.paid == "Yes" then %>
+	<% else %>
+	<%= link_to 'Paid', edit_bill_path(bill), :method => :put, :this => "That" %> |
+	<% end %>
+    <%= link_to 'Edit', edit_bill_path(bill) %> |
+    <%= link_to 'Remove', bill, 
+				confirm: 'Are you sure?', 
+				method: :delete %>
+    	</dl>
+
+	</td>
+
+  </tr>
+
+<% end %>
+</table>
+	<h2><strong><%= link_to 'Add New Bill', new_bill_path %></strong></h2>
+
+
+<br />
+
+

@@ -1,0 +1,37 @@
+<%= form_for(@bill) do |f| %>
+  <% if @bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+
+      <ul>
+      <% @bill.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Name of bill<br />
+    <%= f.text_field :bills %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.number_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :due %><br />
+    <%= f.date_select :due, :order => [:month, :day, :year], :start_year => 0.years.ago.year, :end_year => 1.years.from_now.year%>
+  </div>
+  <div class="field">
+    <%= f.label :paid %>?<br />
+    <%= f.radio_button:paid, "Yes"%>Yes 
+	<%= f.radio_button:paid, "No"%>No<br />
+  </div>
+    <%= f.label :description %><br />
+   <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

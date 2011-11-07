@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+   bills: MyString
+  amount: 1
+  due: 2011-11-06
+  paid: MyString
+
+two:
+   bills: MyString
+  amount: 1
+  due: 2011-11-06
+  paid: MyString
