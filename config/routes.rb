@@ -1,6 +1,6 @@
 Billtracker::Application.routes.draw do
   resources :bills
-     
+    
     
   put "/bills/:id/edit" => 'bills#savepaid'
  # match 'bills/:id' => "bills#savepaid", :via => :put
