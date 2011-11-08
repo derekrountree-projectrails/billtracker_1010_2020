@@ -17,7 +17,7 @@
     <br><strong>Paid?</strong> <%= bill.paid %></dd>
 	<br>
 	<br>
-	<% if bill.paid == "Yes" then %>
+	<% if bill.paid == "No" then %>
 	<% else %>
 	<%= link_to 'Paid', edit_bill_path(bill), :method => :put, :this => "That" %> |
 	<% end %>
